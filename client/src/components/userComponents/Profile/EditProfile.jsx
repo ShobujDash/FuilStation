@@ -1,8 +1,10 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import Label from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import { ImCross } from "react-icons/im";
 
 export function EditProfile({ onClose }) {
   const handleSubmit = (e) => {
@@ -18,7 +20,7 @@ export function EditProfile({ onClose }) {
           onClick={onClose}
           className=" text-gray-500 hover:text-gray-700"
         >
-          ✖️
+          <ImCross className="text-xl text-gray-900 hover:text-blue-700 transition duration-200" />
         </button>
       </div>
       <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
@@ -58,34 +60,11 @@ export function EditProfile({ onClose }) {
           <Input id="password" placeholder="••••••••" type="password" />
         </LabelInputContainer>
 
-
-        <button
-          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 to-neutral-600 block w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-          type="submit"
-        >
-          Save Changes &rarr;
-          <BottomGradient />
-        </button>
+        <Button className="w-full bg-blue-600 text-white hover:bg-blue-900 hover:text-blue-400 transition duration-200">
+          Save Changes
+        </Button>
 
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
-
-        {/* <div className="flex flex-col space-y-4">
-          {[
-            { icon: IconBrandGoogle, label: "Google" },
-          ].map(({ icon: Icon, label }) => (
-            <button
-              key={label}
-              className="relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-              type="button"
-            >
-              <Icon className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-              <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                {label}
-              </span>
-              <BottomGradient />
-            </button>
-          ))}
-        </div> */}
       </form>
     </div>
   );

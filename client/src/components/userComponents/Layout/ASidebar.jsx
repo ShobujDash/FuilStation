@@ -5,15 +5,16 @@ import { IoMdBatteryCharging, IoMdSettings } from "react-icons/io";
 import { IoSearchSharp } from "react-icons/io5";
 import { PiChargingStationFill } from "react-icons/pi";
 
-import { Button } from "@/components/ui/button";
 import { useAuthContext } from "@/context/AuthContext";
 import { Link, NavLink } from "react-router-dom";
 import FuilStation from "../../../../src/assets/public/fuilstation.jpeg";
 import UserImage from "../../../../src/assets/public/UserImage.jpg";
 import Logo from "../../../assets/public/FuilLogo.png";
+import { Button } from "@/components/ui/moving-border";
+import { MovingBorderButton } from "@/components/MoveingBorderButton";
 
 const ASidebar = () => {
-  const { isLoggedIn } = useAuthContext();
+  const { isLoggedIn ,user } = useAuthContext();
 
   const menuItems = [
     { label: "Home", path: "/", icon: <FaHome /> },
@@ -74,8 +75,8 @@ const ASidebar = () => {
 
         <div className="mt-6">
           <div className="p-3 bg-gray-100 rounded-lg dark:bg-gray-800">
-            <h2 className="text-sm font-medium text-gray-800 dark:text-white">
-              New feature available!
+            <h2 className="text-sm font-medium text-blue-800 dark:text-white">
+              Car Recharge Station!
             </h2>
             <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
@@ -88,9 +89,9 @@ const ASidebar = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between mt-6">
+          <div className="flex flex-col items-center justify-between gap-y-3 mt-6">
             {isLoggedIn ? (
-              <>
+              <div className="flex items-center justify-between w-full">
                 <Link to="/profile" className="flex items-center gap-x-2">
                   <img
                     className="object-cover rounded-full h-7 w-7"
@@ -107,10 +108,15 @@ const ASidebar = () => {
                 >
                   <BiLogOut />
                 </Link>
-              </>
+              </div>
             ) : (
               <Link to={"/login"} className="w-full">
-                <Button className="w-full bg-blue-500 hover:bg-blue-800 hover:text-white transition-all duration-300">Login</Button>
+                <MovingBorderButton>Signin</MovingBorderButton>
+              </Link>
+            )}
+            {user && user?.isAdmin && (
+              <Link to={"/admin"} className="w-full">
+                <MovingBorderButton>Admin Pannel</MovingBorderButton>
               </Link>
             )}
           </div>
