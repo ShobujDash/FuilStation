@@ -1,29 +1,51 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-const MapContext = createContext(null);
+// Create Context
+const MapContext = createContext();
 
-const MapContextProvider = ({ children }) => {
-  const [directionClicked, setDirectionClicked] = useState(false);
+// Provider Component
+export const MapProvider = ({ children }) => {
+  const [directionsResponse, setDirectionsResponse] = useState(null);
+  const [distance, setDistance] = useState("");
+  const [duration, setDuration] = useState("");
 
+  const calculateRoute = async (origin, destination) => {
+    if (!origin || !destination) return;
 
+    // eslint-disable-next-line no-undef
+    const directionsService = new google.maps.DirectionsService();
+    const results = await directionsService.route({
+      origin,
+      destination,
+      // eslint-disable-next-line no-undef
+      travelMode: google.maps.TravelMode.DRIVING,
+    });
 
-  const auth = {
-    directionClicked,
-    setDirectionClicked,
+    setDirectionsResponse(results);
+    setDistance(results.routes[0].legs[0].distance.text);
+    setDuration(results.routes[0].legs[0].duration.text);
   };
 
-  return <MapContext.Provider value={auth}>{children}</MapContext.Provider>;
+  const clearRoute = () => {
+    setDirectionsResponse(null);
+    setDistance("");
+    setDuration("");
+  };
+
+  return (
+    <MapContext.Provider
+      value={{
+        directionsResponse,
+        distance,
+        duration,
+        calculateRoute,
+        clearRoute,
+      }}
+    >
+      {children}
+    </MapContext.Provider>
+  );
 };
 
-const useMapContext = () => {
-  const context = useContext(MapContext);
-  if (!context) {
-    throw new Error(
-      "useAdminContext must be used within an AdminContextProvider"
-    );
-  }
-  return context;
-};
-
-// Export the provider and hook
-export { MapContextProvider, useMapContext };
+// Custom Hook
+export const useMapContext = () => useContext(MapContext);

@@ -55,7 +55,7 @@ const mapBoxSlider = [
 
 const MapBottomBox = () => {
   return (
-    <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10  p-2  flex items-center w-[90%] sm:w-[90%] justify-center max-h-[150px]">
+    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10  p-2  flex items-center w-[90%] sm:w-[90%] justify-center max-h-[150px]">
       <Carousel
         opts={{
           align: "start",
