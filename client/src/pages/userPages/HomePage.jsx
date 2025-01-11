@@ -15,7 +15,7 @@ const HomePage = () => {
 
         <div className="flex flex-col gap-3 overflow-y-scroll h-96 sm:h-[90vh] no-scrollbar">
           <div className="my-2 w-full">
-            <WorldMapDemo />
+            {/* <WorldMapDemo /> */}
           </div>
 
           <div className="p-2 flex flex-row gap-3 items-center">

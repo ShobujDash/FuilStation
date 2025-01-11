@@ -1,35 +1,13 @@
-// import Map from "../Map";
-// import ASidebar from "./ASidebar";
 
-// const MasterLayout = ({ children }) => {
-//   return (
-//     <>
-//       <div className="flex h-screen w-screen bg-gray-100">
-//         <div className="hidden w-5/12 md:flex">
-//           <div className="">
-//             <ASidebar />
-//           </div>
-//           <div className="bg-cyan-50 w-full p-2 hidden md:block">
-//             {children}
-//           </div>
-//         </div>
-
-//         {/* Main Content */}
-//         <main className="flex-1 p-2 h-screen mx-1">
-//           <div className="w-full h-full">
-//             {/* Map */}
-//             <Map />
-//           </div>
-//         </main>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default MasterLayout;
-
+import BottomNavbar from "@/components/Auth/BottomNavBar";
 import Map from "../Map";
 import ASidebar from "./ASidebar";
+
+
+
+
+
+
 
 
 const MasterLayout = ({ children }) => {
@@ -48,11 +26,13 @@ const MasterLayout = ({ children }) => {
       </div>
 
       {/* Third Section */}
-      <div className="col-span-12 sm:col-span-8 md:col-span-8 lg:col-span-6">
-        <div className="h-52 bg-red-500">
-          <Map />
-        </div>
+      <div className="col-span-12 sm:col-span-8 md:col-span-8 lg:col-span-6 h-screen">
+        <Map />
+
+        <BottomNavbar />
       </div>
+
+    
     </div>
   );
 };

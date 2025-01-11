@@ -7,7 +7,9 @@ import RecentViewPage from "./pages/userPages/RecentViewPage";
 import BatteryPage from "./pages/userPages/BatteryPage";
 import SettingPage from "./pages/userPages/SettingPage";
 import ProfilePage from "./pages/userPages/ProfilePage";
-import LoginPage from "./pages/userPages/LoginPage";
+import LoginPage from "./pages/userPages/Auth/LoginPage";
+import AdminHomePage from "./pages/adminPages/AdminHomePage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -21,6 +23,10 @@ function App() {
         <Route path={"/settings"} element={<SettingPage />} />
         <Route path={"/profile"} element={<ProfilePage />} />
         <Route path={"/login"} element={<LoginPage />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/admin" element={<AdminHomePage />} />
+        </Route>
       </Routes>
     </>
   );
