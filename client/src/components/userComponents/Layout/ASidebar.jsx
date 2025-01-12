@@ -5,16 +5,15 @@ import { IoMdBatteryCharging, IoMdSettings } from "react-icons/io";
 import { IoSearchSharp } from "react-icons/io5";
 import { PiChargingStationFill } from "react-icons/pi";
 
+import { MovingBorderButton } from "@/components/MoveingBorderButton";
 import { useAuthContext } from "@/context/AuthContext";
 import { Link, NavLink } from "react-router-dom";
 import FuilStation from "../../../../src/assets/public/fuilstation.jpeg";
 import UserImage from "../../../../src/assets/public/UserImage.jpg";
 import Logo from "../../../assets/public/FuilLogo.png";
-import { Button } from "@/components/ui/moving-border";
-import { MovingBorderButton } from "@/components/MoveingBorderButton";
 
 const ASidebar = () => {
-  const { isLoggedIn ,user } = useAuthContext();
+  const { isLoggedIn, user } = useAuthContext();
 
   const menuItems = [
     { label: "Home", path: "/", icon: <FaHome /> },
