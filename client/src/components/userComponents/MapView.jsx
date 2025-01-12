@@ -5,7 +5,8 @@ import {
   DirectionsRenderer,
   useJsApiLoader,
 } from "@react-google-maps/api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
+
 
 const mirpurLocations = [
   {
@@ -55,7 +56,7 @@ const mirpurLocations = [
   },
 ];
 
-const MapView = () => {
+const MapView = memo(() => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const { directionsResponse } = useMapContext();
   const [map, setMap] = useState(null);
@@ -111,6 +112,6 @@ const MapView = () => {
       ))}
     </GoogleMap>
   );
-};
+});
 
 export default MapView;

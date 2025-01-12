@@ -1,18 +1,10 @@
 import { useEffect, useState } from "react";
-import { IoHomeOutline } from "react-icons/io5";
-import { IoCartOutline } from "react-icons/io5";
-import { FaBorderAll } from "react-icons/fa";
-import { PiVideo } from "react-icons/pi";
-import { FaRegMessage } from "react-icons/fa6";
-import { MdAccountCircle } from "react-icons/md";
-import { MdEvStation } from "react-icons/md";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { IoHomeOutline } from "react-icons/io5";
+import { MdAccountCircle, MdEvStation } from "react-icons/md";
 import { TfiGallery } from "react-icons/tfi";
 
-
-
-
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const BottomNavbar = () => {
   const [active, setActive] = useState(2);

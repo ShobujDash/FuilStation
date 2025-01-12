@@ -2,8 +2,6 @@ import MapBottomBox from "./MapBottomBox";
 import MapHeader from "./MapHeader";
 import MapView from "./MapView";
 
-
-
 const Map = () => {
   return (
     <div className="relative w-full h-[calc(100vh-50px)] sm:h-[100vh] rounded-lg">
@@ -22,3 +20,4 @@ const Map = () => {
 };
 
 export default Map;
+
