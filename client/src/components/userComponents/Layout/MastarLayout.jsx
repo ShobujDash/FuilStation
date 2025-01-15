@@ -5,7 +5,6 @@ import { useMemo } from "react";
 
 const MasterLayout = ({ children }) => {
   // Memoize the Map component so it's not rerendered on route changes
-  const memoizedMap = useMemo(() => <Map />, []);
 
   return (
     <div className="grid grid-cols-12 gap-1 w-full">
@@ -23,8 +22,8 @@ const MasterLayout = ({ children }) => {
 
       {/* Third Section */}
       <div className="col-span-12 sm:col-span-8 md:col-span-8 lg:col-span-6 h-screen">
-        {/* <Map /> */}
-        {memoizedMap}
+        <Map />
+        {/* {memoizedMap} */}
         <BottomNavbar />
       </div>
     </div>

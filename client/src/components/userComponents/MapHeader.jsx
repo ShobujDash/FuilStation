@@ -16,26 +16,20 @@ import { useMapContext } from "@/context/MapContext";
 import { Autocomplete } from "@react-google-maps/api";
 import { Button } from "../ui/button";
 
-const MapHeader = ({ location, destination,  }) => {
- const { calculateRoute, clearRoute, distance } = useMapContext();
+const MapHeader = ({ location,   }) => {
+ const { calculateRoute, clearRoute, distance, source, destination } =
+   useMapContext();
 
   return (
     <div className="absolute top-2 left-1/2 transform -translate-x-1/2 z-10 bg-white p-1 rounded shadow-md flex items-center sm:px-2 sm:py-2">
       <div className="flex flex-row gap-2">
-        {/* <InfoBox
-          icon={<FaLocationArrow />}
-          title="Current Location"
-          value={location}
-        />
-        <InfoBox icon={<FaRegFlag />} title="Destination" value={destination} />
-        <InfoBox icon={<GiPathDistance />} title="Distance" value={distance} /> */}
         <div className="flex flex-row items-center justify-center gap-1 min-w-20 sm:min-w-32">
           <div className="text-blue-500 -mt-3">
             <FaLocationArrow />
           </div>
           <div>
-            <h1 className="font-bold text-xs">Current Location</h1>
-            <p className="font-light text-sm">{location}</p>
+            <h1 className="font-bold text-xs">Source</h1>
+            <p className="font-light text-sm">{source ? source : "comilla"}</p>
           </div>
         </div>
         <div className="flex flex-row items-center justify-center gap-1 min-w-20 sm:min-w-32">
@@ -44,7 +38,9 @@ const MapHeader = ({ location, destination,  }) => {
           </div>
           <div>
             <h1 className="font-bold text-xs">Destination</h1>
-            <p className="font-light text-sm">{destination}</p>
+            <p className="font-light text-sm">
+              {destination ? destination : "Dhaka"}
+            </p>
           </div>
         </div>
         <div className="flex flex-row items-center justify-center gap-1 min-w-20 sm:min-w-32">
@@ -118,6 +114,14 @@ const DirectionsSheet = () => {
                   className="w-full bg-green-500 hover:bg-green-800"
                 >
                   Search
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button
+                  onClick={clearRoute}
+                  className="w-full bg-green-500 hover:bg-green-800"
+                >
+                  Clear
                 </Button>
               </SheetClose>
             </div>
