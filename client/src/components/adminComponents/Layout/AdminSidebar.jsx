@@ -8,6 +8,8 @@ import {
   IconLogout2,
   IconSlideshow,
 } from "@tabler/icons-react";
+import { MdEvStation } from "react-icons/md";
+
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -21,24 +23,10 @@ export function AdminSidebar({ children }) {
       ),
     },
     {
-      label: "Add Resort",
-      href: "/admin/add-resort",
+      label: "Add Station",
+      href: "/admin/add-station",
       icon: (
-        <IconBuildingBurjAlArab className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Add Slider",
-      href: "/admin/set-silder-image",
-      icon: (
-        <IconSlideshow className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "User Checkout Resort",
-      href: "/admin/user-checkout-resort",
-      icon: (
-        <IconCheckupList className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <MdEvStation className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
